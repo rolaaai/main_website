@@ -1,0 +1,41 @@
+.verticals-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--spacing-xl);
+  margin-top: var(--spacing-2xl);
+}
+
+.vertical-card {
+  text-align: center;
+  padding: var(--spacing-2xl);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.icon-wrapper {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--spacing-md);
+}
+
+.learn-more-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  color: var(--color-secondary);
+  font-weight: 600;
+  margin-top: auto;
+  transition: gap var(--transition-fast);
+}
+
+.learn-more-link:hover {
+  gap: var(--spacing-sm);
+  color: var(--color-secondary-hover);
+}

@@ -1,0 +1,106 @@
+.roadmap-section {
+  height: 300vh; /* Taller to allow for scroll duration */
+  position: relative;
+  background-color: var(--color-bg-primary);
+}
+
+.sticky-container {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+  padding: var(--spacing-xl) 0;
+}
+
+.roadmap-overflow {
+  width: 100%;
+  overflow: visible;
+}
+
+.roadmap-track {
+  display: flex;
+  gap: 4rem;
+  padding-left: 10vw; /* Start slightly in */
+}
+
+.roadmap-item {
+  position: relative;
+  min-width: 300px;
+  max-width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  padding-top: var(--spacing-3xl);
+}
+
+.roadmap-date {
+  font-size: var(--spacing-sm);
+  font-weight: 600;
+  background: var(--gradient-main);
+  -webkit-background-clip: text;
+  background-clip: text;
+  /* color: transparent; */
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.roadmap-content {
+  background: var(--color-bg-tertiary);
+  padding: var(--spacing-lg);
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: transform var(--transition-normal);
+}
+
+.roadmap-item:hover .roadmap-content {
+  transform: translateY(-10px);
+  border-color: var(--color-primary);
+  box-shadow: 0 10px 30px -10px rgba(0, 240, 255, 0.6);
+}
+
+.roadmap-title {
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+  margin-bottom: var(--spacing-sm);
+  color: var(--color-text-primary);
+}
+
+.roadmap-desc {
+  font-size: var(--font-size-base);
+  color: var(--color-text-secondary);
+  line-height: 1.5;
+}
+
+.roadmap-line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: #fff;
+  z-index: 0;
+}
+
+.roadmap-dot {
+  position: absolute;
+  top: -3px;
+  left: -1px;
+  width: 10px;
+  height: 10px;
+  background: var(--color-primary);
+  border-radius: 50%;
+  /* box-shadow: 0 0 10px var(--color-primary); */
+  z-index: 1;
+}
+
+.roadmap-item.completed .roadmap-line {
+  background: var(--color-primary);
+}
+
+.roadmap-item.upcoming .roadmap-dot {
+  background: var(--color-text-muted);
+  box-shadow: none;
+}
