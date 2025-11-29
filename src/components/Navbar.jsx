@@ -30,7 +30,7 @@ const Navbar = () => {
             Journey
           </a>
           <a href="#creative-services" className="nav-link">
-            What We Do
+            Services
           </a>
           <Button
             variant="primary"
@@ -63,7 +63,7 @@ const Navbar = () => {
               href="#creative-services"
               onClick={() => setIsMobileMenuOpen(false)}
             >
-              What We Do
+              Services
             </a>
             <Button
               variant="primary"

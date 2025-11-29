@@ -30,12 +30,22 @@
 
 .roadmap-sticky-content {
   position: sticky;
-  top: 20vh;
-  height: 60vh;
+  top: 10vh; /* Adjusted top to fit header */
+  height: 80vh; /* Increased height */
+  display: flex;
+  flex-direction: column; /* Stack header and content */
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.roadmap-content-wrapper {
   display: flex;
   align-items: center;
-  justify-content: flex-start; /* Align to left of right column */
-  gap: 3rem; /* Space between line and cards */
+  justify-content: flex-start;
+  gap: 3rem;
+  width: 100%;
+  flex: 1;
+  position: relative;
 }
 
 /* Connection Line */
@@ -185,18 +195,20 @@
 }
 
 .roadmap-header {
-  font-size: 3rem;
-  font-weight: 700;
-  margin-bottom: 4rem;
-  background: linear-gradient(to right, #fff, #666);
-  -webkit-background-clip: text;
+  font-size: 120px;
+  font-weight: 300;
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.15);
+  line-height: 1;
+  margin-bottom: 3rem; /* Reduced margin */
+}
+
+.roadmap-header:hover {
+  background: var(--gradient-main);
   background-clip: text;
+  -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  position: sticky;
-  top: 4rem;
-  z-index: 10;
-  background-color: #000; /* Mask content behind */
-  padding-bottom: 1rem;
+  opacity: 1;
 }
 
 .roadmap-list {
@@ -211,6 +223,10 @@
   transition: opacity 0.5s ease, transform 0.5s ease;
   padding-left: 1rem;
   border-left: 2px solid #333;
+  min-height: 30vh; /* Ensure item is tall enough to be easily intersected */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .roadmap-text-item.active {

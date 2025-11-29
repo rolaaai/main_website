@@ -106,7 +106,7 @@ const CreativeServices = () => {
       <div className="cs-container">
         {/* Left Panel - Sticky Headings */}
         <div className="cs-left-panel">
-          <h2 className="cs-section-title">What We Do</h2>
+          <h2 className="cs-section-title">Services</h2>
           <div className="cs-headings-list">
             {services.map((service) => (
               <div

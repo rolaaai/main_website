@@ -5,7 +5,7 @@ This is the main website for the rolaa ai page
 - Hero section
 - Our Story
 - Journey
-- What we do
+- Services
 - Reviews
 - Footer
 
@@ -13,6 +13,6 @@ This is the main website for the rolaa ai page
 #Next Steps 
 - Add a video in the hero section
 - Add some bg effect just like on antigravity website
-- Refine what we do section
+- Refine Services section
 - Add links to the social media platforms
 - Add our work section

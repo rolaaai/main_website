@@ -87,7 +87,7 @@ const Footer = () => {
               </li>
               <li>
                 <a href="#roadmap" className="footer-link">
-                  What We Do
+                  Services
                 </a>
               </li>
             </ul>

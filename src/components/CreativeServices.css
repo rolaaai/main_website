@@ -28,12 +28,20 @@
 }
 
 .cs-section-title {
-  font-size: var(--font-size-xl);
-  font-weight: 600;
-  color: var(--color-text-secondary);
-  margin-bottom: var(--spacing-2xl);
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
+  font-size: 120px;
+  font-weight: 300;
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.15);
+  line-height: 1;
+  margin-bottom: 100px;
+}
+
+.cs-section-title:hover{
+  background: var(--gradient-main);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  opacity: 1;
 }
 
 .cs-headings-list {
@@ -110,15 +118,14 @@
   height: auto;
   object-fit: cover;
   border-radius: var(--radius-lg);
-  opacity: 0.6;
-  filter: grayscale(100%);
+  filter: grayscale(0%);
   transition: all var(--transition-normal);
   cursor: pointer;
 }
 
 .cs-image:hover {
   opacity: 1;
-  filter: grayscale(0%);
+  filter: grayscale(100%);
   transform: scale(1.02);
 }
 

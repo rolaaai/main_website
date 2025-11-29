@@ -131,8 +131,8 @@ const Roadmap = () => {
   useEffect(() => {
     const options = {
       root: null,
-      rootMargin: "-40% 0px -40% 0px",
-      threshold: 0,
+      rootMargin: "-20% 0px -20% 0px",
+      threshold: 0.2,
     };
 
     const observer = new IntersectionObserver((entries) => {
@@ -157,7 +157,6 @@ const Roadmap = () => {
       <div className="roadmap-container">
         {/* Left Side: Scrollable Text */}
         <div className="roadmap-left">
-          <h2 className="roadmap-header">The Journey</h2>
           <div className="roadmap-list">
             {roadmapData.map((item) => (
               <div
@@ -178,90 +177,97 @@ const Roadmap = () => {
         {/* Right Side: Connected Visuals */}
         <div className="roadmap-right">
           <div className="roadmap-sticky-content">
-            {/* Connection Line Container */}
-            <div className="connection-container">
-              {/* Background Line */}
-              <div className="connection-line-bg" />
+            <h2 className="roadmap-header">The Journey</h2>
+            <div className="roadmap-content-wrapper">
+              {/* Connection Line Container */}
+              <div className="connection-container">
+                {/* Background Line */}
+                <div className="connection-line-bg" />
 
-              {/* Active Progress Line */}
-              <motion.div
-                className="connection-line-progress"
-                animate={{
-                  height: `${(activeIndex / (roadmapData.length - 1)) * 100}%`,
-                }}
-                transition={{ duration: 0.5, ease: "easeInOut" }}
-              />
-
-              {/* Nodes */}
-              {roadmapData.map((item, index) => (
-                <div
-                  key={item.id}
-                  className={`connection-node ${
-                    index <= activeIndex ? "active" : ""
-                  }`}
-                  style={{
-                    top: `${(index / (roadmapData.length - 1)) * 100}%`,
-                  }}
-                >
-                  <div
-                    className="node-dot"
-                    style={{
-                      backgroundColor:
-                        index <= activeIndex ? item.color : "#333",
-                      boxShadow:
-                        index === activeIndex
-                          ? `0 0 20px ${item.color}`
-                          : "none",
-                    }}
-                  />
-                </div>
-              ))}
-            </div>
-
-            {/* Visual Card Display */}
-            <div className="visual-display-area">
-              {roadmapData.map((item, index) => (
+                {/* Active Progress Line */}
                 <motion.div
-                  key={item.id}
-                  className="visual-card-wrapper"
-                  initial={{ opacity: 0, x: 50 }}
+                  className="connection-line-progress"
                   animate={{
-                    opacity: activeIndex === index ? 1 : 0,
-                    x: activeIndex === index ? 0 : 50,
-                    pointerEvents: activeIndex === index ? "auto" : "none",
+                    height: `${
+                      (activeIndex / (roadmapData.length - 1)) * 100
+                    }%`,
                   }}
-                  transition={{ duration: 0.5 }}
-                  style={{
-                    position: "absolute",
-                    top: 0,
-                    left: 0,
-                    width: "100%",
-                  }}
-                >
+                  transition={{ duration: 0.5, ease: "easeInOut" }}
+                />
+
+                {/* Nodes */}
+                {roadmapData.map((item, index) => (
                   <div
-                    className="roadmap-visual-card"
-                    style={{ borderColor: item.color + "40" }}
+                    key={item.id}
+                    className={`connection-node ${
+                      index <= activeIndex ? "active" : ""
+                    }`}
+                    style={{
+                      top: `${(index / (roadmapData.length - 1)) * 100}%`,
+                    }}
                   >
                     <div
-                      className="roadmap-visual-placeholder"
+                      className="node-dot"
                       style={{
-                        background: `linear-gradient(135deg, ${item.color}10, ${item.color}30)`,
+                        backgroundColor:
+                          index <= activeIndex ? item.color : "#333",
+                        boxShadow:
+                          index === activeIndex
+                            ? `0 0 20px ${item.color}`
+                            : "none",
                       }}
+                    />
+                  </div>
+                ))}
+              </div>
+
+              {/* Visual Card Display */}
+              <div className="visual-display-area">
+                {roadmapData.map((item, index) => (
+                  <motion.div
+                    key={item.id}
+                    className="visual-card-wrapper"
+                    initial={{ opacity: 0, x: 50 }}
+                    animate={{
+                      opacity: activeIndex === index ? 1 : 0,
+                      x: activeIndex === index ? 0 : 50,
+                      pointerEvents: activeIndex === index ? "auto" : "none",
+                    }}
+                    transition={{ duration: 0.5 }}
+                    style={{
+                      position: "absolute",
+                      top: 0,
+                      left: 0,
+                      width: "100%",
+                    }}
+                  >
+                    <div
+                      className="roadmap-visual-card"
+                      style={{ borderColor: item.color + "40" }}
                     >
                       <div
-                        className="roadmap-visual-icon"
-                        style={{ color: item.color }}
+                        className="roadmap-visual-placeholder"
+                        style={{
+                          background: `linear-gradient(135deg, ${item.color}10, ${item.color}30)`,
+                        }}
                       >
-                        {item.icon}
+                        <div
+                          className="roadmap-visual-icon"
+                          style={{ color: item.color }}
+                        >
+                          {item.icon}
+                        </div>
+                      </div>
+                      <div className="roadmap-visual-info">
+                        <h4 style={{ color: item.color }}>
+                          {item.visualTitle}
+                        </h4>
+                        <p>{item.visualDesc}</p>
                       </div>
                     </div>
-                    <div className="roadmap-visual-info">
-                      <h4 style={{ color: item.color }}>{item.visualTitle}</h4>
-                      <p>{item.visualDesc}</p>
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
+                  </motion.div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
