@@ -1,85 +1,100 @@
 import React, { useState, useEffect, useRef } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { ArrowLeft } from "lucide-react";
+import { motion, useScroll, useTransform } from "framer-motion";
 import "./CreativeServices.css";
+
+import service1 from "../assets/services/service-1.jpg";
+import service2 from "../assets/services/service-2.jpg";
+import service3 from "../assets/services/service-3.jpg";
+import service4 from "../assets/services/service-4.jpg";
 
 const services = [
   {
     id: 1,
     title: "SaaS Products",
-    shortDesc: "Scalable AI Tools",
-    fullDesc:
-      "Our flagship suite of AI tools designed to automate repetitive tasks, analyze complex data sets, and provide actionable insights in real-time. Built for speed, security, and scalability.",
-    icon: "🚀",
+    description: [
+      "Our flagship suite of ai tools designed to ",
+      { text: "automate repetitive", highlight: true },
+      " tasks, analyze complex data sets, and provide actionable insights in real-time. built for speed, security, and scalability.",
+    ],
+    image: service4,
   },
   {
     id: 2,
     title: "Custom Solutions",
-    shortDesc: "Tailored Engineering",
-    fullDesc:
-      "We don't just sell software; we build partnerships. Our engineering team works directly with your business to identify bottlenecks and architect bespoke AI solutions that fit your exact needs.",
-    icon: "⚙️",
+    description: [
+      "We don't just sell software; we build partnerships. our engineering team works directly with your business to identify bottlenecks and architect ",
+      { text: "bespoke ai", highlight: true },
+      " solutions that fit your exact needs.",
+    ],
+    image: service1,
   },
   {
     id: 3,
     title: "Consulting",
-    shortDesc: "Strategic Guidance",
-    fullDesc:
-      "Navigating the AI landscape can be overwhelming. We provide strategic consulting to help you understand where AI can add the most value to your organization.",
-    icon: "💡",
+    description: [
+      "Navigating the ai landscape can be overwhelming. we provide ",
+      { text: "strategic consulting", highlight: true },
+      " to help you understand where ai can add the most value to your organization.",
+    ],
+    image: service3,
   },
   {
     id: 4,
     title: "Integration",
-    shortDesc: "Seamless Connection",
-    fullDesc:
-      "Our solutions are designed to play nice with your existing stack. We ensure seamless integration with your current CRM, ERP, and other business tools.",
-    icon: "🔗",
+    description: [
+      "Our solutions are designed to play nice with your existing stack. we ensure ",
+      { text: "seamless integration", highlight: true },
+      " with your current crm, erp, and other business tools.",
+    ],
+    image: service2,
   },
 ];
 
 const CreativeServices = () => {
-  const [bookState, setBookState] = useState("closed"); // closed, open, detail
-  const [selectedService, setSelectedService] = useState(null);
+  const [activeId, setActiveId] = useState(1);
   const sectionRef = useRef(null);
 
+  // Scroll progress for the entire section to drive parallax
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"],
+  });
+
+  const y = useTransform(scrollYProgress, [0, 1], [100, -100]);
+
   useEffect(() => {
-    const handleScroll = () => {
-      if (!sectionRef.current) return;
-
-      const rect = sectionRef.current.getBoundingClientRect();
-      const windowHeight = window.innerHeight;
-
-      // Open book when section is prominently in view (center of viewport)
-      // Only trigger when scrolling down and section is well into view
-      if (rect.top < windowHeight * 0 && rect.bottom > windowHeight * 0.2) {
-        if (bookState === "closed") {
-          setBookState("open");
-        }
-      } else if (
-        rect.top < windowHeight * 0.5 &&
-        rect.bottom > windowHeight * 0.5
-      ) {
-        if (bookState === "open") {
-          setBookState("closed");
-        }
-      }
+    const observerOptions = {
+      root: null,
+      rootMargin: "-40% 0px -40% 0px", // Trigger when item is in the middle 20% of screen
+      threshold: 0,
     };
 
-    window.addEventListener("scroll", handleScroll);
-    // Don't check initial state - only open on scroll
+    const observerCallback = (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const id = Number(entry.target.getAttribute("data-id"));
+          setActiveId(id);
+        }
+      });
+    };
 
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [bookState]);
+    const observer = new IntersectionObserver(
+      observerCallback,
+      observerOptions
+    );
+    const items = document.querySelectorAll(".cs-description-item");
+    items.forEach((item) => observer.observe(item));
 
-  const handleCardClick = (service) => {
-    setSelectedService(service);
-    setBookState("detail");
-  };
+    return () => observer.disconnect();
+  }, []);
 
-  const handleBack = () => {
-    setBookState("open");
-    setSelectedService(null);
+  const handleHeadingClick = (id) => {
+    const element = document.querySelector(
+      `.cs-description-item[data-id="${id}"]`
+    );
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth", block: "center" });
+    }
   };
 
   return (
@@ -88,116 +103,55 @@ const CreativeServices = () => {
       ref={sectionRef}
       id="creative-services"
     >
-      <div className="book-container">
-        {/* Book Cover */}
-        <motion.div
-          className="book-cover"
-          initial={{ opacity: 1 }}
-          animate={{
-            opacity: bookState === "closed" ? 1 : 0,
-            rotateY: bookState === "closed" ? 0 : -180,
-            pointerEvents: bookState === "closed" ? "auto" : "none",
-          }}
-          transition={{ duration: 1.2, ease: "easeInOut" }}
-        >
-          <div className="book-spine"></div>
-          <div className="cover-content">
-            <h2 className="cover-title">What We Do</h2>
-            <p className="cover-subtitle">
-              Spin the wheel of innovation. Click to explore.
-            </p>
-            <p className="cover-author">Written by rolaa.ai</p>
-          </div>
-        </motion.div>
-
-        {/* Open Book - Two Pages */}
-        <motion.div
-          className="book-open"
-          initial={{ opacity: 0 }}
-          animate={{
-            opacity: bookState === "open" ? 1 : 0,
-            scale: bookState === "open" ? 1 : 0.9,
-            pointerEvents: bookState === "open" ? "auto" : "none",
-          }}
-          transition={{ duration: 1, delay: bookState === "open" ? 0.5 : 0 }}
-        >
-          {/* Left Page */}
-          <div className="book-page book-page-left">
-            <div className="page-content">
-              {services.slice(0, 2).map((service, index) => (
-                <motion.div
-                  key={service.id}
-                  className="book-card"
-                  onClick={() => handleCardClick(service)}
-                  whileHover={{ scale: 1.05 }}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.8 + index * 0.2 }}
-                >
-                  <div className="book-card-icon">{service.icon}</div>
-                  <h3 className="book-card-title">{service.title}</h3>
-                  <p className="book-card-desc">{service.shortDesc}</p>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-
-          {/* Right Page */}
-          <div className="book-page book-page-right">
-            <div className="page-content">
-              {services.slice(2, 4).map((service, index) => (
-                <motion.div
-                  key={service.id}
-                  className="book-card"
-                  onClick={() => handleCardClick(service)}
-                  whileHover={{ scale: 1.05 }}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.8 + index * 0.2 }}
-                >
-                  <div className="book-card-icon">{service.icon}</div>
-                  <h3 className="book-card-title">{service.title}</h3>
-                  <p className="book-card-desc">{service.shortDesc}</p>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </motion.div>
-
-        {/* Detail View - Page Turn Animation */}
-        <AnimatePresence>
-          {bookState === "detail" && selectedService && (
-            <motion.div
-              className="book-detail"
-              initial={{ opacity: 0, rotateY: -90 }}
-              animate={{ opacity: 1, rotateY: 0 }}
-              exit={{ opacity: 0, rotateY: 90 }}
-              transition={{ duration: 0.8, ease: "easeInOut" }}
-            >
-              <div className="book-page book-page-detail">
-                <div className="detail-content">
-                  <button className="back-btn" onClick={handleBack}>
-                    <ArrowLeft size={20} />
-                    <span>Back</span>
-                  </button>
-
-                  <div className="detail-header">
-                    <span className="detail-icon">{selectedService.icon}</span>
-                    <h3 className="detail-title">{selectedService.title}</h3>
-                  </div>
-
-                  <p className="detail-desc">{selectedService.fullDesc}</p>
-
-                  <div className="detail-footer">
-                    <div className="page-number">
-                      Page {selectedService.id + 1}
-                    </div>
-                  </div>
-                </div>
+      <div className="cs-container">
+        {/* Left Panel - Sticky Headings */}
+        <div className="cs-left-panel">
+          <h2 className="cs-section-title">What We Do</h2>
+          <div className="cs-headings-list">
+            {services.map((service) => (
+              <div
+                key={service.id}
+                className={`cs-heading-item ${
+                  activeId === service.id ? "active" : ""
+                }`}
+                onClick={() => handleHeadingClick(service.id)}
+              >
+                {service.title}
               </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
+            ))}
+          </div>
+        </div>
+
+        {/* Right Panel - Scrollable Descriptions */}
+        <div className="cs-right-panel">
+          {services.map((service) => (
+            <div
+              key={service.id}
+              className="cs-description-item"
+              data-id={service.id}
+            >
+              {/* Image above description */}
+              <div className="cs-image-container">
+                <img
+                  src={service.image}
+                  alt={service.title}
+                  className="cs-image"
+                />
+              </div>
+
+              <p className="cs-desc-content">
+                {service.description.map((part, index) => (
+                  <span
+                    key={index}
+                    className={part.highlight ? "cs-desc-highlight" : ""}
+                  >
+                    {part.highlight ? part.text : part}
+                  </span>
+                ))}
+              </p>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );

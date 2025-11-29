@@ -15,8 +15,8 @@ function App() {
       <main className="">
         <Hero />
         <Story />
-        <Roadmap />
         <CreativeServices />
+        <Roadmap />
         <Reviews />
       </main>
       <Footer />

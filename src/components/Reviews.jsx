@@ -42,7 +42,7 @@ const Reviews = () => {
       number: "08",
       text: "We replaced three tools with Capture. Editing, captions, and delivery live in one dashboard.",
       author: "Ethan Brooks, Head of Ops",
-    }
+    },
   ];
 
   return (
