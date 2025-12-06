@@ -7,6 +7,13 @@
   width: 100vw;
 }
 
+@media (max-width: 768px) {
+  .footer {
+    padding: 60px 20px; /* Standardized mobile padding */
+    height: auto; /* Allow auto height on mobile */
+  }
+}
+
 .footer-container {
   display: flex;
   flex-direction: column;
@@ -517,7 +524,11 @@
 
 @media (max-width: 480px) {
   .footer-content {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(
+      2,
+      1fr
+    ); /* Keep 2 columns for Company and Product */
+    gap: 20px;
   }
 
   .cta-button {

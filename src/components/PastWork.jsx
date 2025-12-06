@@ -1,69 +1,69 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import image1 from "../../public/pastWorkImages/alokarival.png";
+import image2 from "../../public/pastWorkImages/supermarket.png";
+import image3 from "../../public/pastWorkImages/freshTimes.png";
 import "./PastWork.css";
 
 const projects = [
   {
-    id: 1,
-    title: "FinTech Dashboard",
-    shortDescription:
-      "A comprehensive financial analytics platform for enterprise clients.",
-    longDescription:
-      "We built a high-performance financial dashboard that aggregates data from multiple sources in real-time. The challenge was to process millions of data points without compromising on UI responsiveness. We utilized WebSockets for real-time updates and a custom charting library for visualization.",
-    deliveryTime: "3 Months",
-    timeToMake: "12 Weeks",
-    image:
-      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop",
-    rating: 5,
-    customerReview:
-      "The team at Rola.ai delivered beyond our expectations. The dashboard is not only fast but also incredibly intuitive. It has transformed how we analyze our financial data.",
-    liveLink: "#",
-    videoPreview:
-      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop", // Using image as placeholder for video
-  },
+  id: 1,
+  title: "Alok Aviral – Poet Website",
+  shortDescription:
+    "A beautifully designed portfolio website for a renowned Hindi/Urdu poet, showcasing poetry collections and event journeys.",
+  longDescription:
+    "We created an elegant and culturally expressive digital presence for Alok Aviral, a celebrated Hindi/Urdu poet. The platform highlights his extensive poetry collection, curated across genres and themes, allowing visitors to read and engage with his artistic work. It also features a complete timeline of past events, appearances, publications, and upcoming performances.\n\nThe biggest challenge was to maintain the authentic poetic essence while ensuring modern UI/UX. We crafted a minimal yet emotional design language that reflects traditional literature aesthetics. The website’s backend enables effortless content updates, event management, and poetry publishing, making digital expansion seamless for the poet.\n\nThe result is a smooth, fast, and immersive experience for poetry lovers, allowing them to explore the poet’s journey like never before.",
+  deliveryTime: "2 Months",
+  timeToMake: "2 Months",
+  image: image1, 
+  rating: 5,
+  customerReview:
+    "Rola.ai has done an exceptional job. The website perfectly captures the essence of my poetry and has become a beautiful digital identity for my work. The team was extremely supportive throughout the development, and what impressed me the most was their after-service support. They maintain the website regularly, update content quickly, and genuinely care about long-term quality. Highly recommended!",
+  liveLink: "https://alokaviral.in/",
+  videoPreview: image1
+}
+,
   {
-    id: 2,
-    title: "E-Commerce Rebrand",
-    shortDescription:
-      "Complete digital transformation for a leading fashion retailer.",
-    longDescription:
-      "This project involved a complete overhaul of the client's e-commerce presence. We focused on creating a seamless user journey from discovery to checkout. The new design system we implemented increased conversion rates by 40% in the first month.",
-    deliveryTime: "4 Months",
-    timeToMake: "16 Weeks",
-    image:
-      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop",
-    rating: 5,
-    customerReview:
-      "Our new website is stunning. The attention to detail and the smooth animations have received so much praise from our customers. Rola.ai truly understands modern web design.",
-    liveLink: "#",
-    videoPreview:
-      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop",
-  },
+  id: 2,
+  title: "Southern Supermarket – Online Grocery Store",
+  shortDescription:
+    "A complete ecommerce platform enabling a local supermarket in Delhi to deliver groceries online and expand its customer base.",
+  longDescription:
+    "Southern Supermarket, a well-established local store in Delhi, aimed to expand beyond walk-in customers by offering online grocery delivery. We developed a full-featured ecommerce platform tailored specifically for grocery shopping, focusing on ease of use, quick ordering, secure payments, and efficient order management.\n\nThe website includes features such as product categorization, smart search & filtering, real-time stock updates, delivery slot scheduling, and a smooth checkout system. We integrated an admin dashboard allowing store owners to manage products, pricing, offers, customer orders, and delivery tracking.\n\nOur challenge was designing a fast and mobile-first interface since most customers place orders from phones. The final solution significantly improved customer convenience and increased overall store reach and revenue.",
+  deliveryTime: "4 Months",
+  timeToMake: "4 Months",
+  image: image2,
+  rating: 4.8,
+  customerReview:
+    "Working with Rola.ai was a great decision. They transformed our offline shop into a fully functional online grocery platform that our customers love. The UI is simple, intuitive, and fast, and the admin panel has made order management extremely easy for our team. Their support during and after development has been excellent. One small area of improvement could be adding more analytics tools for sales tracking, but overall we are very happy with the service!",
+  liveLink: "https://southernsupermarket.com",
+  videoPreview: image2
+}
+,
   {
-    id: 3,
-    title: "AI Health Assistant",
-    shortDescription:
-      "Mobile-first web application for personalized health monitoring.",
-    longDescription:
-      "We developed an AI-powered health assistant that helps users track their vitals and provides personalized health recommendations. The app integrates with wearable devices and uses machine learning to predict potential health issues.",
-    deliveryTime: "2.5 Months",
-    timeToMake: "10 Weeks",
-    image:
-      "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=2070&auto=format&fit=crop",
-    rating: 4.8,
-    customerReview:
-      "Building a health app requires a high level of precision and security. The team handled it perfectly. The AI integration is seamless and genuinely helpful.",
-    liveLink: "#",
-    videoPreview:
-      "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=2070&auto=format&fit=crop",
-  },
+  id: 3,
+  title: "Funky Fresh Times – Lifestyle & Magazine Website",
+  shortDescription:
+    "A modern online lifestyle magazine delivering trending articles across health, fashion, beauty, food, and wellness.",
+  longDescription:
+    "Funky Fresh Times is a digital publication designed to deliver fresh and engaging lifestyle content to a global audience. The website features high-quality articles spanning fashion, beauty, food, health, relationships, fitness, and personal development.\n\nWe created a fast and highly responsive content-based platform optimizing both reading experience and editorial workflow. The site includes category-based navigation, trending and latest article sections, SEO-optimized publishing structure, and a rich CMS to enable writers to publish and manage articles with ease.\n\nThe biggest challenge was ensuring a visually appealing layout that presents long-form reading content without overwhelming the user. We designed a clean and clean layout inspired by modern magazines, making the content easy to explore. The platform also supports future scalability such as ads integration, video articles, multi-author access, subscription systems, and audience analytics.\n\nCurrently, thousands of active readers consume content daily, and the smooth structure helps the brand grow consistently in the lifestyle publishing space.",
+  deliveryTime: "2.5 Months",
+  timeToMake: "10 Weeks",
+  image: image3,
+  rating: 5,
+  customerReview:
+    "The team at Rola.ai delivered exactly what we were looking for — a sleek, fast, and beautifully structured magazine website. Our writers love the easy CMS, and the site performance is excellent even with frequent article uploads. The design perfectly complements our content categories and has significantly improved our audience engagement. Highly recommended!",
+  liveLink: "https://funkyfreshtimes.com/lifestyle",
+  videoPreview: image3
+}
+
 ];
 
 const PastWork = () => {
   const [selectedProject, setSelectedProject] = useState(null);
 
   return (
-    <section className="past-work-section">
+    <section id="past-work" className="past-work-section">
       <div className="past-work-container">
         <div className="past-work-header">
           <motion.h2

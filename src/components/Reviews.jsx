@@ -45,15 +45,43 @@ const Reviews = () => {
     },
   ];
 
+  const scrollContainerRef = React.useRef(null);
+
+  React.useEffect(() => {
+    const scrollContainer = scrollContainerRef.current;
+    if (!scrollContainer) return;
+
+    const handleAutoScroll = () => {
+      if (window.innerWidth > 768) return; // Only run on mobile
+
+      if (
+        scrollContainer.scrollLeft + scrollContainer.clientWidth >=
+        scrollContainer.scrollWidth - 10
+      ) {
+        // Reset to start if at the end
+        scrollContainer.scrollTo({ left: 0, behavior: "smooth" });
+      } else {
+        // Scroll by one card width
+        const cardWidth =
+          scrollContainer.querySelector(".review-card")?.clientWidth || 300;
+        scrollContainer.scrollBy({ left: cardWidth + 16, behavior: "smooth" });
+      }
+    };
+
+    const intervalId = setInterval(handleAutoScroll, 2000);
+
+    return () => clearInterval(intervalId);
+  }, []);
+
   return (
-    <section className="reviews-section">
+    <section id="reviews" className="reviews-section">
       <div className="reviews-container">
         <div className="reviews-header">
           <div className="stars">★ ★ ★ ★ ★</div>
           <h2 className="reviews-title">What they say.</h2>
         </div>
 
-        <div className="reviews-field">
+        <div className="reviews-field" ref={scrollContainerRef}>
           {reviews.map((review, index) => (
             <div key={index} className={`review-card card-${index + 1}`}>
               <p className="review-number">({review.number})</p>
@@ -66,13 +94,13 @@ const Reviews = () => {
         <div className="reviews-stats">
           <div className="stat">
             <h3 className="stat-number">
-              1200<span className="plus">+</span>
+              15<span className="plus">+</span>
             </h3>
             <p className="stat-label">Reviews</p>
           </div>
           <div className="stat">
             <h3 className="stat-number">
-              10,000<span className="plus">+</span>
+              10<span className="plus">+</span>
             </h3>
             <p className="stat-label">Happy Clients</p>
           </div>

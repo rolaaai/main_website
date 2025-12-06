@@ -130,6 +130,9 @@ const CreativeServices = () => {
               className="cs-description-item"
               data-id={service.id}
             >
+              {/* Mobile Heading */}
+              <h3 className="cs-mobile-heading">{service.title}</h3>
+
               {/* Image above description */}
               <div className="cs-image-container">
                 <img

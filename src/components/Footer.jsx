@@ -4,7 +4,7 @@ import "./Footer.css";
 
 const Footer = () => {
   return (
-    <footer className="footer">
+    <footer id="footer" className="footer">
       <div className="footer-container">
         {/* Upper Card with CTA */}
         <div className="footer-upper-card">
@@ -73,21 +73,27 @@ const Footer = () => {
 
           {/* Product Column */}
           <div className="footer-column">
-            <h4 className="footer-heading">Product</h4>
+            <h4 className="footer-heading">Company</h4>
             <ul className="footer-links">
               <li>
                 <a href="#creative-services" className="footer-link">
-                  Our Story
+                  Services
                 </a>
               </li>
               <li>
-                <a href="#" className="footer-link">
+                <a href="#past-work" className="footer-link">
+                  Past Work
+                </a>
+              </li>
+              
+              <li>
+                <a href="#roadmap" className="footer-link">
                   Journey
                 </a>
               </li>
               <li>
-                <a href="#roadmap" className="footer-link">
-                  Services
+                <a href="#reviews" className="footer-link">
+                  Reviews
                 </a>
               </li>
             </ul>
@@ -95,21 +101,11 @@ const Footer = () => {
 
           {/* Company Column */}
           <div className="footer-column">
-            <h4 className="footer-heading">Company</h4>
+            <h4 className="footer-heading">Product</h4>
             <ul className="footer-links">
               <li>
-                <a href="#story" className="footer-link">
-                  About Us
-                </a>
-              </li>
-              <li>
-                <a href="#" className="footer-link">
-                  Careers
-                </a>
-              </li>
-              <li>
-                <a href="mailto:contact@rolaa.ai" className="footer-link">
-                  Contact
+                <a href="#our-product" className="footer-link">
+                  Our Product
                 </a>
               </li>
             </ul>

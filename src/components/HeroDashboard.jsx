@@ -230,7 +230,7 @@ const HeroDashboard = () => {
                 <div className="shared-screen-content">
                   {/* Placeholder for shared screen content */}
                   <div className="shared-screen-placeholder">
-                    <div className="loading-spinner"></div>
+                    {/* <div className="loading-spinner"></div> */}
                   </div>
                 </div>
                 <div className="video-label">Shared Screen</div>

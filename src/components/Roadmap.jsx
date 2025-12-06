@@ -153,8 +153,9 @@ const Roadmap = () => {
   }, []);
 
   return (
-    <section className="roadmap-section" ref={containerRef}>
+    <section id="roadmap" className="roadmap-section" ref={containerRef}>
       <div className="roadmap-container">
+        <h2 className="roadmap-header mobile-header">The Journey</h2>
         {/* Left Side: Scrollable Text */}
         <div className="roadmap-left">
           <div className="roadmap-list">

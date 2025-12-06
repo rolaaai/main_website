@@ -636,3 +636,74 @@
     transform: rotate(360deg);
   }
 }
+
+@media (max-width: 768px) {
+  .dashboard-sidebar {
+    display: none;
+  }
+
+  .dashboard-content-wrapper {
+    width: 100%;
+  }
+
+  .dashboard-container {
+    padding: 10px;
+  }
+
+  .dashboard-tabs {
+    gap: 10px;
+    overflow-x: auto;
+    white-space: nowrap;
+    padding-bottom: 5px;
+  }
+
+  .dashboard-tab {
+    font-size: 12px;
+  }
+
+  /* Hide less important columns on mobile */
+  .col-id,
+  .col-recording,
+  .col-date {
+    display: none;
+  }
+
+  .table-header,
+  .table-row {
+    font-size: 11px;
+    padding: 8px;
+  }
+
+  .status-badge {
+    font-size: 10px;
+    padding: 1px 6px;
+  }
+
+  .action-btn {
+    padding: 2px 6px;
+    font-size: 10px;
+  }
+
+  /* Adjust Video Stream for mobile */
+  .dashboard-video-stream {
+    grid-template-columns: 1fr; /* Stack vertically */
+    height: auto; /* Allow height to grow */
+    min-height: 400px;
+  }
+
+  .video-grid {
+    height: 250px; /* Fixed height for video part */
+    padding: 10px;
+    gap: 5px;
+  }
+
+  .transcript-feed {
+    height: 200px; /* Fixed height for transcript */
+    padding: 10px;
+  }
+
+  .video-tile .video-label {
+    font-size: 9px;
+    padding: 2px 4px;
+  }
+}

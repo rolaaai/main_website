@@ -12,7 +12,10 @@ const Hero = () => {
   const y2 = useTransform(scrollY, [0, 500], [0, -150]);
 
   return (
-    <section className="hero relative flex items-center justify-center min-h-screen bg-black">
+    <section
+      id="hero"
+      className="hero relative flex items-center justify-center min-h-screen bg-black"
+    >
       {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
         <motion.div
@@ -25,8 +28,6 @@ const Hero = () => {
         />
         <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 brightness-100 contrast-150 mix-blend-overlay"></div>
       </div>
-
-      
 
       <div className="container relative z-10 flex flex-col items-start justify-center text-left h-full px-4">
         <motion.div>
@@ -49,8 +50,8 @@ const Hero = () => {
         </motion.div>
 
         <div className="hero-3d-background">
-        <HeroDashboard />
-      </div>
+          <HeroDashboard />
+        </div>
       </div>
     </section>
   );

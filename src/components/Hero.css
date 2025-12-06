@@ -89,11 +89,22 @@
 }
 
 @media (max-width: 768px) {
+  .hero {
+    padding: 60px 20px; /* Standardized mobile padding */
+  }
+
   .hero-title {
     font-size: var(--font-size-4xl);
   }
 
   .hero-subtitle {
     font-size: var(--font-size-lg);
+    margin-bottom: var(--spacing-xl);
+  }
+
+  .hero-3d-background {
+    height: 600px; /* Reduced height for mobile */
+    width: 95%; /* Prevent edge-to-edge */
+    margin: 0 auto;
   }
 }
