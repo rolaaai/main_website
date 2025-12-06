@@ -1,7 +1,9 @@
 import React from "react";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
-import Story from "./components/Story";
+
+import PastWork from "./components/PastWork";
+import OurProduct from "./components/OurProduct";
 import Roadmap from "./components/Roadmap";
 import CreativeServices from "./components/CreativeServices";
 import Reviews from "./components/Reviews";
@@ -14,9 +16,10 @@ function App() {
       <Navbar />
       <main className="">
         <Hero />
-        <Story />
-        <Roadmap />
         <CreativeServices />
+        <PastWork />
+        <OurProduct />
+        <Roadmap />
         <Reviews />
       </main>
       <Footer />

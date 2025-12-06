@@ -109,3 +109,9 @@ img {
   background: var(--color-primary);
   color: var(--color-bg-primary);
 }
+
+@media (max-width: 768px) {
+  .section-title {
+    font-size: var(--font-size-3xl);
+  }
+}

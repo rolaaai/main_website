@@ -23,14 +23,20 @@ const Navbar = () => {
         </div>
 
         <div className="desktop-menu">
-          <a href="#story" className="nav-link">
-            Our Story
+          <a href="#creative-services" className="nav-link">
+            Services
+          </a>
+          <a href="#past-work" className="nav-link">
+            Past Work
+          </a>
+          <a href="#our-product" className="nav-link">
+            Our Product
           </a>
           <a href="#roadmap" className="nav-link">
             Journey
           </a>
-          <a href="#creative-services" className="nav-link">
-            What We Do
+          <a href="#reviews" className="nav-link">
+            Reviews
           </a>
           <Button
             variant="primary"
@@ -53,17 +59,23 @@ const Navbar = () => {
 
         {isMobileMenuOpen && (
           <div className="mobile-menu">
-            <a href="#story" onClick={() => setIsMobileMenuOpen(false)}>
-              Our Story
-            </a>
-            <a href="#roadmap" onClick={() => setIsMobileMenuOpen(false)}>
-              Journey
-            </a>
             <a
               href="#creative-services"
               onClick={() => setIsMobileMenuOpen(false)}
             >
-              What We Do
+              Services
+            </a>
+            <a href="#past-work" onClick={() => setIsMobileMenuOpen(false)}>
+              Past Work
+            </a>
+            <a href="#our-product" onClick={() => setIsMobileMenuOpen(false)}>
+              Our Product
+            </a>
+            <a href="#roadmap" onClick={() => setIsMobileMenuOpen(false)}>
+              Journey
+            </a>
+            <a href="#reviews" onClick={() => setIsMobileMenuOpen(false)}>
+              Reviews
             </a>
             <Button
               variant="primary"
