@@ -5,43 +5,46 @@ const Reviews = () => {
   const reviews = [
     {
       number: "01",
-      text: "An unforgettable experience! The yacht was pure luxury, and the crew took care of every detail. The service was top-notch, the destinations breathtaking.",
-      author: "Sophia & Daniel, Maldives",
+      text: "Rola.ai has done an exceptional job. The website perfectly captures the essence of my poetry and has become a beautiful digital identity for my work.",
+      author: "Alok Aviral, Poet & Artist",
     },
     {
       number: "02",
-      text: "We celebrated our anniversary on board — magical sunsets, crystal-clear water, and flawless hospitality. Best vacation of our lives.",
-      author: "Liam & Emily, Dubai",
+      text: "Working with Rola.ai was a great decision. They transformed our offline shop into a fully functional online grocery platform that our customers love.",
+      author: "Suresh Kumar, Southern Supermarket",
     },
     {
       number: "03",
-      text: "Capture made our demos look incredibly polished. Instant sync keeps everyone aligned without juggling files.",
-      author: "Alex Chen, Product Manager",
+      text: "The team at Rola.ai delivered exactly what we were looking for — a sleek, fast, and beautifully structured magazine website.",
+      author: "Riya Sharma, Funky Fresh Times",
     },
     {
       number: "04",
-      text: "Onboarding videos now take minutes instead of days. Our clients notice the difference immediately.",
-      author: "Priya Shah, Customer Success Lead",
+      text: "Exceptional attention to detail. They didn't just build a website; they built a digital experience that resonates with our audience.",
+      author: "Vikram Malhotra, TechFlow Solutions",
     },
     {
       number: "05",
-      text: "Version chaos is gone. Real-time comments plus quick exports save hours every sprint.",
-      author: "Mateo Ramirez, Creative Director",
+      text: "Our engagement metrics skyrocketed after the redesign. Rola.ai understands how to blend aesthetics with functionality perfectly.",
+      author: "Ananya Gupta, StyleHub",
     },
     {
       number: "06",
-      text: "From investor updates to product walkthroughs, Capture gives us studio-quality video without the studio.",
-      author: "Harper Collins, COO",
+      text: "Professional, timely, and incredibly talented. They took our vague ideas and turned them into a stunning reality.",
+      author: "Rajesh Verma, GreenLeaf Organics",
     },
     {
       number: "07",
-      text: "The glassy UI feels premium and the workflow is effortless. Our team actually enjoys recording.",
-      author: "Olivia Bennett, Marketing Lead",
+      text: "The best dev team I've worked with. Clean code, great communication, and a final product that exceeded all expectations.",
+      author: "Sanya Kapoor, PixelPerfect Studios",
     },
     {
       number: "08",
       text: "We replaced three tools with Capture. Editing, captions, and delivery live in one dashboard.",
       author: "Ethan Brooks, Head of Ops",
+    },{
+      text: "Scalability was our main concern, and Rola.ai nailed it. The architecture is solid, and the UI is butter smooth.",
+      author: "Arjun Mehta, InnovateX",
     },
   ];
 
