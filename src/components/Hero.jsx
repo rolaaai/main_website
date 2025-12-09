@@ -32,7 +32,7 @@ const Hero = () => {
       <div className="container relative z-10 flex flex-col items-start justify-center text-left h-full px-4">
         <motion.div>
           <h1 className="hero-title text-6xl md:text-8xl font-bold tracking-tighter mb-6 leading-tight">
-            <span className="text-white block">We Build</span>
+            <span className="text-white block">We Build </span>
             <span className="text-gradient bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-purple-600">
               The Future
             </span>
